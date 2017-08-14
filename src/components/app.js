@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 export default class App extends Component {
   render() {
     return (
-      <div>React simple starter!!</div>
+      <div>
+        <p>React simple starter!!</p>
+        <p>Git Bash Trial</p>
+      </div>
     );
   }
 }
