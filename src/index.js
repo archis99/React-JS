@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'lodash';
 import YTSearch from 'youtube-api-search'
 // import { Provider } from 'react-redux';
 // import { createStore, applyMiddleware } from 'redux';
@@ -37,9 +38,10 @@ class App extends React.Component {
 
 
   render(){
+    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 1000);
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+        <SearchBar onSearchTermChange={videoSearch}/>
         <VideoDetails video={this.state.selectedVideo} />
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
